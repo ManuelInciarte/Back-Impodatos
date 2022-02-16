@@ -13,9 +13,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "03. Persistence", "03. Pers
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "04. Models", "04. Models", "{81193A6E-17CB-422B-9B23-FAD2E15E1EE1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Impodatos.Api", "Impodatos.Api\Impodatos.Api.csproj", "{A72C3979-F320-496F-AFED-876178B2747E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Impodatos.Api", "Impodatos.Api\Impodatos.Api.csproj", "{A72C3979-F320-496F-AFED-876178B2747E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Impodatos.Domain", "Impodatos.Domain\Impodatos.Domain.csproj", "{116385E8-BA6C-4B9D-A6F2-3D0DEFA068F1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Impodatos.Domain", "Impodatos.Domain\Impodatos.Domain.csproj", "{116385E8-BA6C-4B9D-A6F2-3D0DEFA068F1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Impodatos.Persistence.Database", "Impodatos.Persistence.Database\Impodatos.Persistence.Database.csproj", "{F8E9408C-209B-439D-90E2-D05B8D202B54}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -31,6 +33,10 @@ Global
 		{116385E8-BA6C-4B9D-A6F2-3D0DEFA068F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{116385E8-BA6C-4B9D-A6F2-3D0DEFA068F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{116385E8-BA6C-4B9D-A6F2-3D0DEFA068F1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F8E9408C-209B-439D-90E2-D05B8D202B54}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F8E9408C-209B-439D-90E2-D05B8D202B54}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F8E9408C-209B-439D-90E2-D05B8D202B54}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F8E9408C-209B-439D-90E2-D05B8D202B54}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -42,6 +48,7 @@ Global
 		{81193A6E-17CB-422B-9B23-FAD2E15E1EE1} = {4AEAFC5B-6AEF-4BF4-892A-6FF8B0326EB9}
 		{A72C3979-F320-496F-AFED-876178B2747E} = {D62A0045-9575-467E-9242-8B2D555A9DA6}
 		{116385E8-BA6C-4B9D-A6F2-3D0DEFA068F1} = {81193A6E-17CB-422B-9B23-FAD2E15E1EE1}
+		{F8E9408C-209B-439D-90E2-D05B8D202B54} = {4BDB1D48-694F-467D-B9BC-4B6D756AF9FE}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {94D67448-12BD-4DAA-A60B-B82CD80EC587}
