@@ -19,11 +19,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\Impodatos.Persistence.Database\Impodatos.Persistence.Database.csproj" />
+    <ProjectReference Include="..\Impodatos.Services.Queries\Impodatos.Services.Queries.csproj" />
   </ItemGroup>
 
 </Project>

@@ -1,4 +1,5 @@
 using Impodatos.Persistence.Database;
+using Impodatos.Services.Queries;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -37,6 +38,8 @@ namespace Impodatos.Api
             {
                 options.UseNpgsql(Configuration.GetConnectionString("ConexionDatabase"));
             });
+
+            services.AddTransient<IHistoryQueryService, HistoryQueryService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
