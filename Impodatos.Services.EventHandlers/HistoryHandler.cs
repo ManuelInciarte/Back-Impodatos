@@ -33,28 +33,30 @@ namespace Impodatos.Services.EventHandlers
             MemoryStream ms = new MemoryStream();
             await command.ExcelFile.CopyToAsync(ms);
             var content = Encoding.UTF8.GetString(ms.ToArray());
-            string[] datos = content.Split("\n");
-            var Obj = datos[0].Split(";");
+            string[] datos = content.Split("\r\n");       
+            var properties = datos[0].Split(";");
+
+
+
+
+
+
+
+
+            var valor = datos[1].Split(";");
             dynamic Objeto = new ExpandoObject();
 
-            string propiedad = Obj[0];
-            Objeto["Hola"] = "Manuel";
+            var objResult = new Dictionary<string, string>();
+            objResult.Add(properties[0], valor[0]);
+            objResult.Add(properties[1], valor[69]);
 
-            string[] arr_sample = new string[Obj.Length];
-            for (int i=0; i< Obj.Length; i++)
-            {
-                arr_sample[i] = Obj[i];
-            }
 
-           
-            var result = arr_sample;
-            var result2 = JsonConvert.SerializeObject(Objeto);
+
+
+            var result2 = JsonConvert.SerializeObject(objResult);
+         
      
-
-
-
-
-            SLDocument documento = new SLDocument(ms);
+                        SLDocument documento = new SLDocument(ms);
             var columnas = documento.GetWorksheetStatistics().NumberOfColumns;
             var filas = documento.GetWorksheetStatistics().NumberOfRows;
        
