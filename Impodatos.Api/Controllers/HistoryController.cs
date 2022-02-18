@@ -30,7 +30,7 @@ namespace Impodatos.Api.Controllers
             return await _historyQueryService1.GetHistoryUserAsync(user);
         }
         [HttpPost]
-        public async Task<IActionResult> Add(HistoryCreateCommand command)
+        public async Task<IActionResult> Add([FromForm]HistoryCreateCommand command)
         {
             await _mediator.Publish(command);
             return Ok();
