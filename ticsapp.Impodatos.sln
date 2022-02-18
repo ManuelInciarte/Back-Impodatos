@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.1.32210.238
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31105.61
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Impodatos", "Impodatos", "{4AEAFC5B-6AEF-4BF4-892A-6FF8B0326EB9}"
 EndProject
@@ -19,9 +19,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Impodatos.Domain", "Impodat
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Impodatos.Persistence.Database", "Impodatos.Persistence.Database\Impodatos.Persistence.Database.csproj", "{F8E9408C-209B-439D-90E2-D05B8D202B54}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Impodatos.Services.Queries", "Impodatos.Services.Queries\Impodatos.Services.Queries.csproj", "{CEB02999-263D-481A-A6FD-2BE51759C174}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Impodatos.Services.Queries", "Impodatos.Services.Queries\Impodatos.Services.Queries.csproj", "{CEB02999-263D-481A-A6FD-2BE51759C174}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "05. Common", "05. Common", "{93972841-4BE4-41C4-9C8C-5A7CBEEFFFEF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Impodatos.Services.EventHandlers", "Impodatos.Services.EventHandlers\Impodatos.Services.EventHandlers.csproj", "{DB1703FD-EDF4-49CF-97DA-6269A0960BB5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +45,10 @@ Global
 		{CEB02999-263D-481A-A6FD-2BE51759C174}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CEB02999-263D-481A-A6FD-2BE51759C174}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CEB02999-263D-481A-A6FD-2BE51759C174}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DB1703FD-EDF4-49CF-97DA-6269A0960BB5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DB1703FD-EDF4-49CF-97DA-6269A0960BB5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DB1703FD-EDF4-49CF-97DA-6269A0960BB5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DB1703FD-EDF4-49CF-97DA-6269A0960BB5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -58,7 +62,7 @@ Global
 		{116385E8-BA6C-4B9D-A6F2-3D0DEFA068F1} = {81193A6E-17CB-422B-9B23-FAD2E15E1EE1}
 		{F8E9408C-209B-439D-90E2-D05B8D202B54} = {4BDB1D48-694F-467D-B9BC-4B6D756AF9FE}
 		{CEB02999-263D-481A-A6FD-2BE51759C174} = {4ED38698-534F-48B5-A66C-B928C274673C}
-		{93972841-4BE4-41C4-9C8C-5A7CBEEFFFEF} = {4AEAFC5B-6AEF-4BF4-892A-6FF8B0326EB9}
+		{DB1703FD-EDF4-49CF-97DA-6269A0960BB5} = {4ED38698-534F-48B5-A66C-B928C274673C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {94D67448-12BD-4DAA-A60B-B82CD80EC587}

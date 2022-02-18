@@ -1,5 +1,6 @@
 using Impodatos.Persistence.Database;
 using Impodatos.Services.Queries;
+using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -12,6 +13,7 @@ using Microsoft.OpenApi.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Threading.Tasks;
 
 namespace Impodatos.Api
@@ -28,7 +30,7 @@ namespace Impodatos.Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
+            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
@@ -39,6 +41,8 @@ namespace Impodatos.Api
                 options.UseNpgsql(Configuration.GetConnectionString("ConexionDatabase"));
             });
 
+            services.AddMediatR(Assembly.Load("Impodatos.Services.EventHandlers"));
+                                           
             services.AddTransient<IHistoryQueryService, HistoryQueryService>();
         }
 
