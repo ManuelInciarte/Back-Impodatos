@@ -1,4 +1,6 @@
-﻿using Impodatos.Services.EventHandlers.Commands;
+﻿using FluentValidation;
+using Impodatos.Services.EventHandlers.Commands;
+using Impodatos.Services.EventHandlers.Validators;
 using Impodatos.Services.Queries;
 using Impodatos.Services.Queries.DTOs;
 using MediatR;
@@ -14,10 +16,12 @@ namespace Impodatos.Api.Controllers
     {
         private readonly IHistoryQueryService _historyQueryService1;
         private readonly IMediator _mediator;
-       public HistoryController(IHistoryQueryService historyQueryService, IMediator mediator)
+        private readonly IValidator<HistoryCreateCommand> _historyValidator;
+       public HistoryController(IHistoryQueryService historyQueryService, IMediator mediator, IValidator<HistoryCreateCommand> historyValidator)
         {
             _historyQueryService1 = historyQueryService;
             _mediator = mediator;
+            _historyValidator = historyValidator;
         }
         [HttpGet]
         public async Task<IEnumerable<HistoryDto>> GetAll()
@@ -32,8 +36,14 @@ namespace Impodatos.Api.Controllers
         [HttpPost]
         public async Task<IActionResult> Add([FromForm]HistoryCreateCommand command)
         {
-            await _mediator.Publish(command);
-            return Ok();
+            var validation = _historyValidator.Validate(command);
+            if (validation.IsValid)
+            {
+                await _mediator.Publish(command);
+                return Ok();
+            }
+            return Ok(validation.Errors);
+    
         }
         [HttpPut]
         public async Task<IActionResult> Update(HistoryUpdateCommand command)

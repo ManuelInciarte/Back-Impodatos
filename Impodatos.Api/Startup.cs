@@ -1,4 +1,7 @@
+using FluentValidation;
 using Impodatos.Persistence.Database;
+using Impodatos.Services.EventHandlers.Commands;
+using Impodatos.Services.EventHandlers.Validators;
 using Impodatos.Services.Queries;
 using MediatR;
 using Microsoft.AspNetCore.Builder;
@@ -44,6 +47,7 @@ namespace Impodatos.Api
             services.AddMediatR(Assembly.Load("Impodatos.Services.EventHandlers"));
                                            
             services.AddTransient<IHistoryQueryService, HistoryQueryService>();
+            services.AddTransient<IValidator<HistoryCreateCommand>, HistoryCreateValidator>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
