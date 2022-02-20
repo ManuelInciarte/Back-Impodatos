@@ -1,6 +1,5 @@
 ﻿using FluentValidation;
 using Impodatos.Services.EventHandlers.Commands;
-using Impodatos.Services.EventHandlers.Validators;
 using Impodatos.Services.Queries;
 using Impodatos.Services.Queries.DTOs;
 using MediatR;

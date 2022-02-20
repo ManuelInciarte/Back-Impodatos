@@ -43,7 +43,7 @@ namespace Impodatos.Services.EventHandlers
 
                 listObjResult.Add(objResult);
             }
-            var json = JsonConvert.SerializeObject(listObjResult);
+            var json = JsonConvert.SerializeObject(listObjResult);       
 
             await _context.AddAsync(new History
             {

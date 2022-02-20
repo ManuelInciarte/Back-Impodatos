@@ -23,6 +23,7 @@ namespace Impodatos.Api
 {
     public class Startup
     {
+        private  readonly string _MyCors = "Cors";
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -43,7 +44,13 @@ namespace Impodatos.Api
             {
                 options.UseNpgsql(Configuration.GetConnectionString("ConexionDatabase"));
             });
-
+            services.AddCors(options =>
+            {
+                options.AddPolicy(name: _MyCors, builder =>
+                {
+                    builder.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod();
+                });
+            });
             services.AddMediatR(Assembly.Load("Impodatos.Services.EventHandlers"));
                                            
             services.AddTransient<IHistoryQueryService, HistoryQueryService>();
@@ -61,7 +68,7 @@ namespace Impodatos.Api
             }
 
             app.UseRouting();
-
+            app.UseCors(_MyCors);
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
