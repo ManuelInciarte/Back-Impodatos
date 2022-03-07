@@ -44,6 +44,7 @@ namespace Impodatos.Api
             services.AddMediatR(Assembly.Load("Impodatos.Services.EventHandlers"));
                                            
             services.AddTransient<IHistoryQueryService, HistoryQueryService>();
+            services.AddTransient<IDhisQueryService, DhisQueryService>();      
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

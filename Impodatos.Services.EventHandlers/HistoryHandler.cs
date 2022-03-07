@@ -38,11 +38,6 @@ namespace Impodatos.Services.EventHandlers
 
 
 
-
-
-
-
-
             var valor = datos[1].Split(";");
             dynamic Objeto = new ExpandoObject();
 
