@@ -11,6 +11,7 @@ using System.Dynamic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.Json;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -29,43 +30,29 @@ namespace Impodatos.Services.EventHandlers
 
         public async Task Handle(HistoryCreateCommand command, CancellationToken cancellation)
         {
-
-            MemoryStream ms = new MemoryStream();
-            await command.ExcelFile.CopyToAsync(ms);
-            var content = Encoding.UTF8.GetString(ms.ToArray());
-            string[] datos = content.Split("\r\n");       
-            var properties = datos[0].Split(";");
-
-
-
-            var valor = datos[1].Split(";");
-            dynamic Objeto = new ExpandoObject();
-
-            var objResult = new Dictionary<string, string>();
-            objResult.Add(properties[0], valor[0]);
-            objResult.Add(properties[1], valor[69]);
-
-
-
-
-            var result2 = JsonConvert.SerializeObject(objResult);
-         
      
-                        SLDocument documento = new SLDocument(ms);
-            var columnas = documento.GetWorksheetStatistics().NumberOfColumns;
-            var filas = documento.GetWorksheetStatistics().NumberOfRows;
-       
+            var reader = new StreamReader(command.ExcelFile.OpenReadStream());
+            var propiedades = reader.ReadLine().Split(';');
+            var listObjResult = new List<Dictionary<string, string>>();
+            while (!reader.EndOfStream)
+            {
+                var valores = reader.ReadLine().Split(';');
+                var objResult = new Dictionary<string, string>();
+                for (int j = 0; j < propiedades.Length; j++)
+                    objResult.Add(propiedades[j], valores[j]);
 
-
+                listObjResult.Add(objResult);
+            }
+            var json = JsonConvert.SerializeObject(listObjResult);       
 
             await _context.AddAsync(new History
-            {                 
-                 Programsid = command.Programsid, 
-                 //JsonSet = command.JsonSet,
-                 //JsonResponse = command.JsonResponse,
-                 State = false,
-                 UserLogin = command.UserLogin,
-                 Fecha = DateTime.Now
+            {
+                Programsid = command.Programsid,
+                JsonSet = json,
+                JsonResponse = "No procesado",
+                State = false,
+                UserLogin = command.UserLogin,
+                Fecha = DateTime.Now
 
             });
             await _context.SaveChangesAsync();
