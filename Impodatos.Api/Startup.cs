@@ -71,7 +71,6 @@ namespace Impodatos.Api
             app.UseRouting();
             app.UseCors(_MyCors);
             app.UseAuthorization();
-
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
