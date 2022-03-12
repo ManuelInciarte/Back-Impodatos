@@ -55,6 +55,7 @@ namespace Impodatos.Api
                                            
             services.AddTransient<IHistoryQueryService, HistoryQueryService>();
             services.AddTransient<IValidator<HistoryCreateCommand>, HistoryCreateValidator>();
+            services.AddTransient<IDhisQueryService, DhisQueryService>();      
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -70,7 +71,6 @@ namespace Impodatos.Api
             app.UseRouting();
             app.UseCors(_MyCors);
             app.UseAuthorization();
-
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
