@@ -43,7 +43,8 @@ namespace Impodatos.Services.Queries
                                     JsonResponse = c.JsonResponse,
                                     State = c.State,
                                     UserLogin = c.UserLogin,
-                                    Fecha = c.Fecha
+                                    Fecha = c.Fecha,
+                                    File = c.File
 
                                 }).ToListAsync();
 

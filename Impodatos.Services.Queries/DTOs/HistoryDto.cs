@@ -11,5 +11,6 @@ namespace Impodatos.Services.Queries.DTOs
         public bool State { get; set; }
         public string UserLogin { get; set; }
         public DateTime Fecha { get; set; }
+        public byte [] File { get; set; }
     }
 }

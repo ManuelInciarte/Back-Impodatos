@@ -13,6 +13,7 @@ namespace Impodatos.Persistence.Database.Configuration
             entityBuilder.Property(x => x.State).IsRequired();
             entityBuilder.Property(x => x.UserLogin).IsRequired().HasMaxLength(300);
             entityBuilder.Property(x => x.Fecha).IsRequired();
+            entityBuilder.Property(x => x.File).IsRequired();
         }
     }
 }
